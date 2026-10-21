@@ -1,0 +1,159 @@
+{# Autor: Ryan Pablo #}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Muchiko</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #f7f3e1;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #8bbdc2;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .logo {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            color: #ffffff;
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        .header-mascot {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+        }
+        .menu-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 120px);
+            padding: 20px 0;
+        }
+        .menu-card {
+            background-color: white;
+            border-radius: 25px;
+            padding: 35px 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            width: 320px;
+            border: 2px solid #e2dac2;
+        }
+        .card-mascot {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+        .card-mascot:hover {
+            transform: scale(1.1) rotate(-5deg); 
+        }
+        .menu-title {
+            color: #40586b;
+            font-size: 22px;
+            margin: 0 0 8px 0;
+        }
+        .menu-subtitle {
+            color: #6a8292;
+            font-size: 14px;
+            margin: 0 0 25px 0;
+        }
+        .menu-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+            font-weight: bold;
+            font-size: 15px;
+        }
+        .menu-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        .shop-button {
+            background-color: #5bb3ba;
+            color: white;
+        }
+        .stock-button {
+            background-color: #f7f3e1;
+            color: #40586b;
+            border: 2px solid #5bb3ba;
+        }
+        .logout-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #8da4b5;
+            text-decoration: none;
+            font-size: 13px;
+        }
+        .logout-link:hover {
+            color: #40586b;
+        }
+        .menu-button .icon {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        .footer-text {
+            color: #8da4b5;
+            font-size: 12px;
+            margin-top: 15px;
+        }
+        .bottom-wave {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 25px;
+            background-color: #8bbdc2;
+            border-radius: 20px 20px 0 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">MUCHIIKO</div>
+        <img src="{{ url_for('static', filename='transferir.png') }}" alt="Tomate Muchiko" class="header-mascot">
+    </header>
+
+    <div class="menu-container">
+        <div class="menu-card">
+            <img src="{{ url_for('static', filename='transferir.png') }}" alt="Muchiko" class="card-mascot">
+            
+            <h1 class="menu-title">Menu Principal</h1>
+            <p class="menu-subtitle">Escolha uma opção para continuar</p>
+
+            <a href="{{ url_for('exibir_loja') }}" class="menu-button shop-button">
+                <i class="fas fa-shopping-bag icon"></i> Ir para a Loja
+            </a>
+            
+            <a href="{{ url_for('renderizar_estoque') }}" class="menu-button stock-button">
+                <i class="fas fa-boxes-stacked icon"></i> Ir para o Estoque
+            </a>
+
+            <a href="{{ url_for('home') }}" class="logout-link">
+                <i class="fas fa-right-from-bracket"></i> Sair da conta
+            </a>
+
+            <p class="footer-text">Supermercado Muchiko ©</p>
+        </div>
+    </div>
+
+    <div class="bottom-wave"></div>
+
+</body>
+</html>
